@@ -1,0 +1,531 @@
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&display=swap&subset=vietnamese");
+@import "tailwindcss";
+@import "../styles/responsive-fixes.css";
+
+:root {
+  /* Mommy Leveling Color Palette */
+  --peach: #ffd6c9;
+  --lavender: #e7d1ff;
+  --baby-blue: #bce5ff;
+  --mint: #c8f2d4;
+  --cream: #fff9f6;
+
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.15 0 0);
+  --foreground: oklch(0.95 0 0);
+  --card: oklch(0.18 0 0);
+  --card-foreground: oklch(0.95 0 0);
+  --popover: oklch(0.15 0 0);
+  --popover-foreground: oklch(0.95 0 0);
+  --primary: oklch(0.95 0 0);
+  --primary-foreground: oklch(0.15 0 0);
+  --secondary: oklch(0.25 0 0);
+  --secondary-foreground: oklch(0.95 0 0);
+  --muted: oklch(0.25 0 0);
+  --muted-foreground: oklch(0.7 0 0);
+  --accent: oklch(0.25 0 0);
+  --accent-foreground: oklch(0.95 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.25 0 0);
+  --input: oklch(0.25 0 0);
+  --ring: oklch(0.439 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.15 0 0);
+  --sidebar-foreground: oklch(0.95 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.95 0 0);
+  --sidebar-accent: oklch(0.25 0 0);
+  --sidebar-accent-foreground: oklch(0.95 0 0);
+  --sidebar-border: oklch(0.25 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  --font-sans: "Be Vietnam Pro", "Geist", "Geist Fallback";
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Add custom color utilities for Mommy Leveling palette */
+  --color-peach: var(--peach);
+  --color-lavender: var(--lavender);
+  --color-baby-blue: var(--baby-blue);
+  --color-mint: var(--mint);
+  --color-cream: var(--cream);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Add mission modal and XP animation keyframes */
+@layer utilities {
+  @keyframes float-up {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100px) scale(0.5);
+      opacity: 0;
+    }
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes particle-expand {
+    0% {
+      transform: translate(0, 0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(var(--tx, 100px), var(--ty, 100px)) scale(0);
+      opacity: 0;
+    }
+  }
+
+  @keyframes avatar-appear {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes leaf-drift {
+    0% {
+      transform: translateY(0) translateX(0) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) translateX(100px) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 rgba(255, 214, 201, 0.7);
+    }
+    50% {
+      box-shadow: 0 0 0 10px rgba(255, 214, 201, 0);
+    }
+  }
+
+  @keyframes slide-up-fade {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes xp-badge-fly {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-300px) scale(0.3);
+      opacity: 0;
+    }
+  }
+
+  @keyframes heart-bloom {
+    0% {
+      transform: scale(0) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes breathing-glow {
+    0%,
+    100% {
+      box-shadow: 0 0 20px rgba(255, 214, 201, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(255, 214, 201, 0.6);
+    }
+  }
+
+  @keyframes gentle-bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-4px);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  @keyframes soft-pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  .animate-float-up {
+    animation: float-up 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out forwards;
+  }
+
+  .animate-particle-expand {
+    animation: particle-expand 1s ease-out forwards;
+  }
+
+  .animate-avatar-appear {
+    animation: avatar-appear 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+
+  .animate-leaf-drift {
+    animation: leaf-drift 2s ease-in forwards;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s infinite;
+  }
+
+  .animate-slide-up-fade {
+    animation: slide-up-fade 0.5s ease-out forwards;
+  }
+
+  .animate-xp-badge-fly {
+    animation: xp-badge-fly 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  .animate-heart-bloom {
+    animation: heart-bloom 0.8s ease-out forwards;
+  }
+
+  .animate-breathing-glow {
+    animation: breathing-glow 3s ease-in-out infinite;
+  }
+
+  .animate-gentle-bounce {
+    animation: gentle-bounce 2s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    background-size: 1000px 100%;
+  }
+
+  .animate-soft-pulse {
+    animation: soft-pulse 2s ease-in-out infinite;
+  }
+
+  /* AI Emotional Translator Animations */
+  @keyframes heartbeat-pulse {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(255, 214, 201, 0.4);
+    }
+    25% {
+      transform: scale(1.05);
+      box-shadow: 0 0 0 8px rgba(255, 214, 201, 0.2);
+    }
+    50% {
+      transform: scale(1.1);
+      box-shadow: 0 0 0 12px rgba(255, 214, 201, 0.1);
+    }
+    75% {
+      transform: scale(1.05);
+      box-shadow: 0 0 0 8px rgba(255, 214, 201, 0.2);
+    }
+  }
+
+  @keyframes language-switch-fade {
+    0% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    50% {
+      opacity: 0.3;
+      transform: translateX(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes text-emotion-glow {
+    0%, 100% {
+      text-shadow: 0 0 0 transparent;
+    }
+    50% {
+      text-shadow: 0 0 8px rgba(231, 209, 255, 0.3);
+    }
+  }
+
+  @keyframes translation-loading {
+    0% {
+      background-position: -100% 0;
+    }
+    100% {
+      background-position: 100% 0;
+    }
+  }
+
+  @keyframes warm-appear {
+    0% {
+      opacity: 0;
+      transform: translateY(10px) scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes love-ripple {
+    0% {
+      box-shadow: 0 0 0 0 rgba(255, 214, 201, 0.6);
+    }
+    70% {
+      box-shadow: 0 0 0 20px rgba(255, 214, 201, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(255, 214, 201, 0);
+    }
+  }
+
+  @keyframes emotional-typing {
+    0%, 100% {
+      border-color: rgba(255, 214, 201, 0.3);
+    }
+    50% {
+      border-color: rgba(231, 209, 255, 0.6);
+    }
+  }
+
+  .animate-heartbeat-pulse {
+    animation: heartbeat-pulse 1.5s ease-in-out;
+  }
+
+  .animate-language-switch-fade {
+    animation: language-switch-fade 0.6s ease-in-out;
+  }
+
+  .animate-text-emotion-glow {
+    animation: text-emotion-glow 2s ease-in-out infinite;
+  }
+
+  .animate-translation-loading {
+    animation: translation-loading 2s linear infinite;
+    background: linear-gradient(90deg, transparent, rgba(255, 214, 201, 0.2), transparent);
+    background-size: 200% 100%;
+  }
+
+  .animate-warm-appear {
+    animation: warm-appear 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .animate-love-ripple {
+    animation: love-ripple 2s infinite;
+  }
+
+  .animate-emotional-typing {
+    animation: emotional-typing 2s ease-in-out infinite;
+  }
+
+  /* Language switching body class effects */
+  body.language-switching * {
+    transition: all 0.3s ease-in-out;
+  }
+
+  body.language-switching .bilingual-text {
+    animation: language-switch-fade 0.6s ease-in-out;
+  }
+}
+
+/* Add custom Tailwind utilities for the color palette */
+@layer utilities {
+  .bg-peach {
+    @apply bg-[#FFD6C9];
+  }
+  .bg-lavender {
+    @apply bg-[#E7D1FF];
+  }
+  .bg-baby-blue {
+    @apply bg-[#BCE5FF];
+  }
+  .bg-mint {
+    @apply bg-[#C8F2D4];
+  }
+  .bg-cream {
+    @apply bg-[#FFF9F6];
+  }
+
+  .text-peach {
+    @apply text-[#FFD6C9];
+  }
+  .text-lavender {
+    @apply text-[#E7D1FF];
+  }
+  .text-baby-blue {
+    @apply text-[#BCE5FF];
+  }
+  .text-mint {
+    @apply text-[#C8F2D4];
+  }
+  .text-cream {
+    @apply text-[#FFF9F6];
+  }
+
+  .border-peach {
+    @apply border-[#FFD6C9];
+  }
+  .border-lavender {
+    @apply border-[#E7D1FF];
+  }
+  .border-baby-blue {
+    @apply border-[#BCE5FF];
+  }
+  .border-mint {
+    @apply border-[#C8F2D4];
+  }
+  .border-cream {
+    @apply border-[#FFF9F6];
+  }
+
+  /* Dark mode warm tone overrides */
+  .dark .bg-cream {
+    @apply bg-slate-800;
+  }
+  .dark .bg-peach {
+    @apply bg-rose-900/40;
+  }
+  .dark .bg-lavender {
+    @apply bg-purple-900/40;
+  }
+  .dark .bg-baby-blue {
+    @apply bg-blue-900/40;
+  }
+  .dark .bg-mint {
+    @apply bg-emerald-900/40;
+  }
+
+  /* Reduce motion support */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
