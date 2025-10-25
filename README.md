@@ -431,5 +431,5 @@ pnpm build
 - [Component Library](./docs/components.md) - Thư viện component UI
 
 ---
-
-💕 **Chúc bạn có trải nghiệm tuyệt vời với Mommy Leveling!**
+** Mẹ leo tháp, con lớn khôn **
+💕 **Chúc bạn có trải nghiệm tuyệt vời với Mommy Leveling! **
