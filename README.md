@@ -1,4 +1,4 @@
-# � Mommy Leveling - AI-Assisted Unit Testing Competition
+# Mommy Leveling - AI-Assisted Unit Testing Competition
 
 > **🎯 COMPETITION SUBMISSION - READY FOR EVALUATION**  
 > AI-Powered Testing Challenge - 96.2% coverage in 170/180 minutes
